@@ -32,7 +32,7 @@ class TB6612FNG(object):
         self.pwm = GPIO.PWM(self.pinout['PWMA'], 200)
         self.direction = 'CW'
         
-    def power_on(self, dutycycle):
+    def output_on(self, dutycycle):
         '''
         Turn on the output voltage at a given PWM modulation. Note that the
         PWM is handled through the python RPi.GPIO module which only does PWM
@@ -53,7 +53,7 @@ class TB6612FNG(object):
         GPIO.output(self.pinout['STBY'], GPIO.HIGH)
         self.pwm.start(dutycycle)
 
-    def power_off(self):
+    def output_off(self):
         '''
         Turn off the output voltage.
 
